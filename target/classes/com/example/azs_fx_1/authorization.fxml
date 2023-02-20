@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="261.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.azs_fx_1.AuthController">
+    <children>
+        <Button layoutX="56.0" layoutY="225.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="149.6" text="ВОЙТИ" fx:id="enterButton" onAction="#onEnterButtonClick">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font></Button>
+        <Label layoutX="33.0" layoutY="14.0" text="Авторизация">
+            <font>
+                <Font name="System Bold" size="30.0" />
+            </font>
+        </Label>
+        <PasswordField layoutX="55.0" layoutY="166.0" fx:id="passwordField"/>
+        <TextField layoutX="55.0" layoutY="107.0" fx:id="loginField"/>
+        <Label layoutX="55.0" layoutY="84.0" text="Логин" />
+        <Label layoutX="55.0" layoutY="143.0" text="Пароль" />
+    </children>
+</AnchorPane>
+<!--
+<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.azs_fx_1.AuthController">
+<VBox>
+    <Button text="Button" />
+    <TextField/>
+
+</VBox>
+
+</Pane>
+-->

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="519.0" fitWidth="513.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/grass.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/cashbox.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/entry.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="128.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="128.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="128.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/grass.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/exit.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/highway.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/ТРК.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/grass.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="320.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="83.0" layoutX="256.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@Шаблоны/car.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="320.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/grass.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/grass.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="448.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/grass.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="448.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/road.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/ТРК.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/ТРК.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/highway.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="320.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/highway.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/highway.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="448.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/highway.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="128.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/highway.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/highway.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="64.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Шаблоны/highway.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="512.0" prefHeight="592.0" prefWidth="369.0">
+         <children>
+            <Label layoutX="257.0" layoutY="118.0" text="9500 л">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="118.0" text="Остаток топлива в баках:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="185.0" layoutY="75.0" text="7500 руб.">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="75.0" text="Выручка:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="205.0" layoutY="37.0" text="16:00">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="107.0" layoutY="37.0" text="Время:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="35.0" layoutY="165.0" prefHeight="347.0" prefWidth="298.0" AnchorPane.bottomAnchor="79.80000000000001" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="36.200000000000045" AnchorPane.topAnchor="165.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.39990234375" minWidth="10.0" prefWidth="168.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.4000244140625" minWidth="10.0" prefWidth="83.19999999999999" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="     № автомашины" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" text="     Время заезда" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="     Объем бака" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="     Тип топлива" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="     Остаток топлива" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="     № ТРК" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="     Стоимость" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="       1" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="   15:02" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="      40" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="  АИ-92" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="      10" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="       1" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="     200" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <Label layoutX="32.0" layoutY="535.0" text="Скорость:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Spinner layoutX="128.0" layoutY="538.0" prefHeight="26.0" prefWidth="50.0" />
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="271.0" layoutY="515.0">
+         <image>
+            <Image url="@Шаблоны/pause.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="349.0" layoutY="515.0">
+         <image>
+            <Image url="@Шаблоны/play.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="192.0" layoutY="516.0">
+         <image>
+            <Image url="@Шаблоны/rewind.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="429.0" layoutY="515.0" rotate="180.0">
+         <image>
+            <Image url="@Шаблоны/rewind.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="83.0" layoutX="256.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@Шаблоны/car.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="83.0" layoutX="64.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@Шаблоны/car.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
