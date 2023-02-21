@@ -79,8 +79,8 @@ public class AuthController {
             e.printStackTrace();
         }
         System.out.println(result);
-
-        if (result != null) {
+// TODO: вернуть проверку
+        /*if (result != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
             root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -88,7 +88,14 @@ public class AuthController {
             stage.setTitle("Main");
             stage.setScene(scene);
             stage.show();
-        }
+        }*/
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Main");
+        stage.setScene(scene);
+        stage.show();
 
         /*try {
             FXMLLoader fxmlLoader = new FXMLLoader();

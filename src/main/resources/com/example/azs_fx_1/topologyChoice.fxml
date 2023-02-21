@@ -9,7 +9,7 @@
       <VBox layoutX="133.0" layoutY="25.0" prefHeight="348.0" prefWidth="343.0">
          <children>
             <Label text="Топология АЗС" />
-            <Button mnemonicParsing="false" text="Создание АЗС" />
+            <Button mnemonicParsing="false" text="Создание АЗС" fx:id="createAZS" onAction="#onCreateAZSButtonClick"/>
             <Label text="Загрузить топологию АЗС для редактирования" />
             <HBox prefHeight="31.0" prefWidth="343.0">
                <children>
