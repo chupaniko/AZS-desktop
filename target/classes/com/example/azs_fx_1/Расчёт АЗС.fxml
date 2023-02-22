@@ -46,197 +46,197 @@
    <children>
       <ImageView fitHeight="519.0" fitWidth="513.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/grass.jpg" />
+            <Image url="@images/grass.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/cashbox.png" />
+            <Image url="@images/cashbox.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/entry.png" />
+            <Image url="@images/entry.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="128.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="128.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="128.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/grass.jpg" />
+            <Image url="@images/grass.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/exit.png" />
+            <Image url="@images/exit.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/highway.png" />
+            <Image url="@images/highway.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/ТРК.png" />
+            <Image url="@images/fuelStation.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/grass.jpg" />
+            <Image url="@images/grass.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="320.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="83.0" layoutX="256.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
          <image>
-            <Image url="@Шаблоны/car.png" />
+            <Image url="@images/car.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="320.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/grass.jpg" />
+            <Image url="@images/grass.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="192.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/grass.jpg" />
+            <Image url="@images/grass.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="448.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/grass.jpg" />
+            <Image url="@images/grass.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="448.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/road.png" />
+            <Image url="@images/road.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/ТРК.png" />
+            <Image url="@images/fuelStation.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/ТРК.png" />
+            <Image url="@images/fuelStation.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="256.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/highway.png" />
+            <Image url="@images/highway.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="320.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/highway.png" />
+            <Image url="@images/highway.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="384.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/highway.png" />
+            <Image url="@images/highway.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="448.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/highway.png" />
+            <Image url="@images/highway.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="128.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/highway.png" />
+            <Image url="@images/highway.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/highway.png" />
+            <Image url="@images/highway.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="64.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Шаблоны/highway.png" />
+            <Image url="@images/highway.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="512.0" prefHeight="592.0" prefWidth="369.0">
@@ -368,32 +368,32 @@
       <Spinner layoutX="128.0" layoutY="538.0" prefHeight="26.0" prefWidth="50.0" />
       <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="271.0" layoutY="515.0">
          <image>
-            <Image url="@Шаблоны/pause.png" />
+            <Image url="@images/pause.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="349.0" layoutY="515.0">
          <image>
-            <Image url="@Шаблоны/play.png" />
+            <Image url="@images/play.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="192.0" layoutY="516.0">
          <image>
-            <Image url="@Шаблоны/rewind.png" />
+            <Image url="@images/rewind.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="429.0" layoutY="515.0" rotate="180.0">
          <image>
-            <Image url="@Шаблоны/rewind.png" />
+            <Image url="@images/rewind.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="83.0" layoutX="256.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
          <image>
-            <Image url="@Шаблоны/car.png" />
+            <Image url="@images/car.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="64.0" fitWidth="83.0" layoutX="64.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
-            <Image url="@Шаблоны/car.png" />
+            <Image url="@images/car.png" />
          </image>
       </ImageView>
    </children>
