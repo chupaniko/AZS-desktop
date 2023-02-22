@@ -80,9 +80,41 @@ public class TopologyDTO {
         return result;
     }
 
-    public class FuelTank {
+    public static class FuelTank {
+        public FuelTank(int tankNumber, FuelType fuelType) {
+            this.tankNumber = tankNumber;
+            this.fuelType = fuelType;
+        }
         public int tankNumber;
-        public enum fuelType {
+        private FuelType fuelType;
+        public int getTankNumber() {
+            return tankNumber;
+        }
+        public void setTankNumber(int tankNumber) {
+            this.tankNumber = tankNumber;
+        }
+        public FuelType getFuelType() {
+            return fuelType;
+        }
+
+        public void setFuelType(FuelType fuelType) {
+            this.fuelType = fuelType;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            FuelTank fuelTank = (FuelTank) o;
+            return tankNumber == fuelTank.tankNumber && fuelType == fuelTank.fuelType;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(tankNumber, fuelType);
+        }
+
+        public enum FuelType {
             AI_80,
             AI_92,
             AI_95,
@@ -90,8 +122,55 @@ public class TopologyDTO {
             DT
         }
     }
-    public class TemplateAZS {
-        public enum template {
+    public static class TemplateAZS {
+
+        private int x_coordinate;
+        private int y_coordinate;
+        private Template template;
+        public TemplateAZS(int x_coordinate, int y_coordinate, Template template) {
+            this.x_coordinate = x_coordinate;
+            this.y_coordinate = y_coordinate;
+            this.template = template;
+        }
+
+        public int getX_coordinate() {
+            return x_coordinate;
+        }
+
+        public void setX_coordinate(int x_coordinate) {
+            this.x_coordinate = x_coordinate;
+        }
+
+        public int getY_coordinate() {
+            return y_coordinate;
+        }
+
+        public void setY_coordinate(int y_coordinate) {
+            this.y_coordinate = y_coordinate;
+        }
+
+        public Template getTemplate() {
+            return template;
+        }
+
+        public void setTemplate(Template template) {
+            this.template = template;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            TemplateAZS that = (TemplateAZS) o;
+            return template == that.template;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(template);
+        }
+
+        public enum Template {
             grass,
             filling_station,
             entry,
@@ -99,7 +178,5 @@ public class TopologyDTO {
             cashbox,
             road
         }
-        public int x_coordinate;
-        public int y_coordinate;
     }
 }

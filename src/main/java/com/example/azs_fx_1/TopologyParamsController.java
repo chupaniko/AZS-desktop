@@ -22,8 +22,12 @@ public class TopologyParamsController {
 
     public void onSetTopologyParamsClick(ActionEvent actionEvent) throws IOException {
         TopologyDTO topologyDTO = new TopologyDTO(topologyName.getText(), Integer.parseInt(length_AZS.getText()), Integer.parseInt(width_AZS.getText()));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyParams.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("serviceArea.fxml"));
         root = loader.load();
+
+        ServiceAreaController serviceAreaController = loader.getController();
+        serviceAreaController.setTopologyDTO(topologyDTO);
+
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Настройка служебной области АЗС");
