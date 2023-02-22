@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class TopologyDTO {
-    public String name;
-    public int width;
-    public int height;
-    public FuelTank[] tanks;
-    public int[][] azsField;
+    private String name;
+    private int width;
+    private int height;
+    private FuelTank[] tanks;
+    private int[][] azsField;
 
     public TopologyDTO(String name, int width, int height, FuelTank[] tanks, int[][] azsField) {
         this.name = name;

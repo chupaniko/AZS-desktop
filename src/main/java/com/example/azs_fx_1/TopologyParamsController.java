@@ -21,7 +21,7 @@ public class TopologyParamsController {
     private Parent root;
 
     public void onSetTopologyParamsClick(ActionEvent actionEvent) throws IOException {
-        TopologyDTO topologyDTO = new TopologyDTO(topologyName.getText(), Integer.parseInt(length_AZS.getText()), Integer.parseInt(width_AZS.getText()));
+        TopologyDTO topologyDTO = new TopologyDTO(topologyName.getText(), Integer.parseInt(length_AZS.getText()), Integer.parseInt(width_AZS.getText()) + 1);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("serviceArea.fxml"));
         root = loader.load();
 

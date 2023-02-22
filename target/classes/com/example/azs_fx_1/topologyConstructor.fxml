@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.azs_fx_1.TopologyConstructorController">
     <children>
-        <GridPane fx:id="mainArea" layoutX="33.0" layoutY="72.0">
+        <GridPane fx:id="mainArea" layoutX="36.0" layoutY="37.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="10.0" />
             </columnConstraints>
@@ -20,7 +20,7 @@
                 <Image url="@images/road.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="617.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="imgViewExit" fitHeight="30.0" fitWidth="30.0" layoutX="617.0" layoutY="22.0" onDragDetected="#onImgViewExitDragDetected" onDragDropped="#onImgViewExitDragDropped" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@images/exit.png" />
             </image>

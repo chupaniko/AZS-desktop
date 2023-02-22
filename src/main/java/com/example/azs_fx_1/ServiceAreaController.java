@@ -15,7 +15,7 @@ public class ServiceAreaController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    public void onFurtherButtonClick(ActionEvent actionEvent) throws IOException {
+    public void onFurtherButtonClick(ActionEvent actionEvent) throws IOException, InterruptedException {
         topologyDTO.setTanks(new TopologyDTO.FuelTank[]{
                 new TopologyDTO.FuelTank(1, TopologyDTO.FuelTank.FuelType.AI_98),
                 new TopologyDTO.FuelTank(2, TopologyDTO.FuelTank.FuelType.AI_95),
@@ -26,9 +26,13 @@ public class ServiceAreaController {
         });
         FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyConstructor.fxml"));
         root = loader.load();
+        TopologyConstructorController constructorController = loader.getController();
+        constructorController.setTopologyDTO(topologyDTO);
+        System.out.println("ServiceAreaController:::::::::::::::::::: ");
+        System.out.println("ServiceAreaController:::::::::::::::::::: " + topologyDTO.getName());
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("Конструктор топологии АЗС");
+        stage.setTitle("Конструктор топологии АЗС " + topologyDTO.getName());
         stage.setScene(scene);
         stage.show();
     }
