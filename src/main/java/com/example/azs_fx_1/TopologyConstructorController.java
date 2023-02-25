@@ -3,6 +3,7 @@ package com.example.azs_fx_1;
 import com.example.azs_fx_1.dto.TopologyDTO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -51,8 +52,10 @@ public class TopologyConstructorController {
         }
     }
 
-    public void onImgViewExitDragDetected(MouseEvent event) {
+    final GridPane target = mainArea;
+    public void onImgViewDragDetected(MouseEvent event) {
         ImageView imageView = (ImageView) event.getSource();
+
         Dragboard dragboard = imageView.startDragAndDrop(TransferMode.ANY);
         ClipboardContent content = new ClipboardContent();
         content.putImage(imageView.getImage());
@@ -60,18 +63,34 @@ public class TopologyConstructorController {
         event.consume();
     }
 
-    public void onImgViewExitDragDropped(DragEvent event) {
+    public void onImgViewDragOver(DragEvent event) {
+        if (event.getGestureSource() != target && event.getDragboard().hasImage()){
+            event.acceptTransferModes(TransferMode.MOVE);
+        }
+        event.consume();
+    }
+
+    public void onImgViewDragDropped(DragEvent event) {
         Dragboard dragboard = event.getDragboard();
+        Node node = event.getPickResult().getIntersectedNode();
 
-        if (dragboard.hasImage()) {
+        if ( node != target && dragboard.hasImage()) {
 
-            Image image = dragboard.getImage();
+            Integer cIndex = GridPane.getColumnIndex(node);
+            Integer rIndex = GridPane.getRowIndex(node);
+            int x = cIndex == null ? 0 : cIndex;
+            int y = rIndex == null ? 0 : rIndex;
 
-            GridPane gridPane = (GridPane) event.getGestureTarget();
+//            Image image = dragboard.getImage();
+//
+//            GridPane gridPane = (GridPane) event.getGestureTarget();
 
-            ImageView imageView = new ImageView(image);
+            ImageView newImage = new ImageView(dragboard.getImage());
 
-            gridPane.add(imageView, 0, 0);
+            newImage.setFitHeight(30);
+            newImage.setFitWidth(30);
+
+            mainArea.add(newImage, x, y, 1, 1);
 
             event.setDropCompleted(true);
 
