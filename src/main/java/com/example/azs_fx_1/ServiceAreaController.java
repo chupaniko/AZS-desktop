@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,6 +17,10 @@ public class ServiceAreaController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    public ComboBox<String> comboBox = new ComboBox<String>();
+    public ListView listView;
+
     public void onFurtherButtonClick(ActionEvent actionEvent) throws IOException, InterruptedException {
         topologyDTO.setTanks(new TopologyDTO.FuelTank[]{
                 new TopologyDTO.FuelTank(1, TopologyDTO.FuelTank.FuelType.AI_98),
@@ -38,5 +44,11 @@ public class ServiceAreaController {
     }
     public void setTopologyDTO(TopologyDTO topologyDTO) {
         this.topologyDTO = topologyDTO;
+    }
+
+    public void addGasType (ActionEvent actionEvent) {
+        comboBox.getItems().addAll("Seafood Alfredo", "Chicken Alfredo", "Chicken Picatta", "Turkey Club",
+                "Lobster Pie", "Prime Rib", "Shrimp Scampi", "Turkey Dinner", "Stuffed Chicken");
+        listView.getItems().add(comboBox);
     }
 }
