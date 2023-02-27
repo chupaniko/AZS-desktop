@@ -41,9 +41,9 @@ public class TopologyConstructorController {
                 mainArea.add(templateImageView, i, j);
             }
         }
+        mainArea.getRowConstraints().add(new RowConstraints(30));
         for (int i = 0; i < topologyDTO.getWidth(); i++) {
             ImageView templateImageView = TemplateAZS.HIGHWAY.getImageView();
-            mainArea.getRowConstraints().add(new RowConstraints(30));
             mainArea.add(templateImageView, i, topologyDTO.getHeight() - 1);
         }
     }
@@ -70,17 +70,15 @@ public class TopologyConstructorController {
         Dragboard dragboard = event.getDragboard();
         Node node = event.getPickResult().getIntersectedNode();
 
-        if ( node != target && dragboard.hasImage()) {
-
-            Integer cIndex = GridPane.getColumnIndex(node);
-            Integer rIndex = GridPane.getRowIndex(node);
-            int x = cIndex == null ? 0 : cIndex;
-            int y = rIndex == null ? 0 : rIndex;
-
-//            Image image = dragboard.getImage();
-//
-//            GridPane gridPane = (GridPane) event.getGestureTarget();
-
+        Integer cIndex = GridPane.getColumnIndex(node);
+        Integer rIndex = GridPane.getRowIndex(node);
+        int x = cIndex == null ? 0 : cIndex;
+        int y = rIndex == null ? 0 : rIndex;
+        System.out.println(x);
+        System.out.println(y);
+        //System.out.println(mainArea.getRowConstraints().size());
+        System.out.println(topologyDTO.getHeight());
+        if ( node != target && dragboard.hasImage() && y < topologyDTO.getHeight() - 1) {
             ImageView newImage = new ImageView(dragboard.getImage());
             newImage.setFitHeight(30);
             newImage.setFitWidth(30);
