@@ -1,6 +1,7 @@
 package com.example.azs_fx_1;
 
 import com.example.azs_fx_1.dto.TopologyDTO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -82,7 +83,7 @@ public class TopologyConstructorController {
             ImageView newImage = new ImageView(dragboard.getImage());
             newImage.setFitHeight(30);
             newImage.setFitWidth(30);
-            mainArea.getChildren().remove(node);
+            mainArea.getChildren().removeAll(node);
             mainArea.add(TemplateAZS.ROAD.getImageView(), x, y, 1, 1);
             mainArea.add(newImage, x, y, 1, 1);
 
@@ -92,6 +93,11 @@ public class TopologyConstructorController {
             event.setDropCompleted(false);
             event.consume();
         }
+    }
+
+    public void removeArea (ActionEvent event) {
+        mainArea.getChildren().clear();
+        setTopologyDTO(topologyDTO);
     }
 
    /* @Override
