@@ -41,7 +41,7 @@ public class TopologyConstructorController {
                 mainArea.add(templateImageView, i, j);
             }
         }
-        for (int i = 0; i < topologyDTO.getHeight(); i++) {
+        for (int i = 0; i < topologyDTO.getWidth(); i++) {
             ImageView templateImageView = TemplateAZS.HIGHWAY.getImageView();
             mainArea.getRowConstraints().add(new RowConstraints(30));
             mainArea.add(templateImageView, i, topologyDTO.getHeight() - 1);
