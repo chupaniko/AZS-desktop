@@ -36,7 +36,7 @@ public class TopologyConstructorController {
         for (int i = 0; i < topologyDTO.getWidth(); i++) {
             mainArea.getColumnConstraints().add(new ColumnConstraints(30));
             for (int j = 0; j < topologyDTO.getHeight(); j++) {
-                ImageView templateImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/azs_fx_1/images/road.png"))));
+                ImageView templateImageView = TemplateAZS.ROAD.getImageView();
                 templateImageView.setFitWidth(30.0);
                 templateImageView.setFitHeight(30.0);
                 mainArea.getRowConstraints().add(new RowConstraints(30));
@@ -44,7 +44,7 @@ public class TopologyConstructorController {
             }
         }
         for (int i = 0; i < topologyDTO.getHeight(); i++) {
-            ImageView templateImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/azs_fx_1/images/highway.png"))));
+            ImageView templateImageView = TemplateAZS.HIGHWAY.getImageView();
             templateImageView.setFitWidth(30.0);
             templateImageView.setFitHeight(30.0);
             mainArea.getRowConstraints().add(new RowConstraints(30));
@@ -55,7 +55,8 @@ public class TopologyConstructorController {
     final GridPane target = mainArea;
     public void onImgViewDragDetected(MouseEvent event) {
         ImageView imageView = (ImageView) event.getSource();
-
+        imageView.setFitHeight(30);
+        imageView.setFitWidth(30);
         Dragboard dragboard = imageView.startDragAndDrop(TransferMode.ANY);
         ClipboardContent content = new ClipboardContent();
         content.putImage(imageView.getImage());
@@ -69,7 +70,6 @@ public class TopologyConstructorController {
         }
         event.consume();
     }
-
     public void onImgViewDragDropped(DragEvent event) {
         Dragboard dragboard = event.getDragboard();
         Node node = event.getPickResult().getIntersectedNode();
@@ -86,22 +86,17 @@ public class TopologyConstructorController {
 //            GridPane gridPane = (GridPane) event.getGestureTarget();
 
             ImageView newImage = new ImageView(dragboard.getImage());
-
             newImage.setFitHeight(30);
             newImage.setFitWidth(30);
-
+            mainArea.getChildren().remove(node);
+            mainArea.add(TemplateAZS.ROAD.getImageView(), x, y, 1, 1);
             mainArea.add(newImage, x, y, 1, 1);
 
             event.setDropCompleted(true);
-
             event.consume();
-
         } else {
-
             event.setDropCompleted(false);
-
             event.consume();
-
         }
     }
 

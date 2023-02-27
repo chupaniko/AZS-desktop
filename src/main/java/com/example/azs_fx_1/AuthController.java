@@ -89,13 +89,13 @@ public class AuthController {
             stage.setScene(scene);
             stage.show();
         }
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Main");
         stage.setScene(scene);
-        stage.show();*/
+        stage.show();
 
         /*try {
             FXMLLoader fxmlLoader = new FXMLLoader();
