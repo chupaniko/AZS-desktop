@@ -42,7 +42,7 @@
         </ImageView>
         <Button layoutX="543.0" layoutY="257.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="177.0" text="Сохранить" />
         <Button layoutX="543.0" layoutY="297.0" mnemonicParsing="false" onAction="#removeArea" prefHeight="34.0" prefWidth="177.0" text="Очистить" />
-        <Button layoutX="472.0" layoutY="387.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" text="?">
+        <Button fx:id="referenceButton" layoutX="472.0" layoutY="387.0" mnemonicParsing="false" onAction="#onReferenceButtonClick" prefHeight="64.0" prefWidth="64.0" text="?">
             <font>
                 <Font size="24.0" />
             </font>

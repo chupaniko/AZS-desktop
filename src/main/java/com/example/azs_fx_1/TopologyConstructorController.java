@@ -3,8 +3,11 @@ package com.example.azs_fx_1;
 import com.example.azs_fx_1.dto.TopologyDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,7 +16,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -98,6 +104,24 @@ public class TopologyConstructorController {
     public void removeArea (ActionEvent event) {
         mainArea.getChildren().clear();
         setTopologyDTO(topologyDTO);
+    }
+
+    private Stage dialogStage;
+    private Stage primaryStage;
+    private Scene scene;
+    private Parent root;
+
+    public void onReferenceButtonClick (ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("reference.fxml"));
+        root = loader.load();
+        primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        dialogStage = new Stage();
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(primaryStage);
+        scene = new Scene(root);
+        dialogStage.setTitle("Справка");
+        dialogStage.setScene(scene);
+        dialogStage.show();
     }
 
    /* @Override
