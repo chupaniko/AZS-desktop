@@ -7,10 +7,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServiceAreaController {
     private TopologyDTO topologyDTO;
@@ -18,10 +22,11 @@ public class ServiceAreaController {
     private Scene scene;
     private Parent root;
 
-    public ComboBox<String> comboBox = new ComboBox<String>();
+    private List<TopologyDTO.FuelTank> tankList = new ArrayList<>();
     public ListView listView;
 
     public void onFurtherButtonClick(ActionEvent actionEvent) throws IOException, InterruptedException {
+        //TODO: build tanklist from listView and setTanks()
         topologyDTO.setTanks(new TopologyDTO.FuelTank[]{
                 new TopologyDTO.FuelTank(1, TopologyDTO.FuelTank.FuelType.AI_98),
                 new TopologyDTO.FuelTank(2, TopologyDTO.FuelTank.FuelType.AI_95),
@@ -34,8 +39,6 @@ public class ServiceAreaController {
         root = loader.load();
         TopologyConstructorController constructorController = loader.getController();
         constructorController.setTopologyDTO(topologyDTO);
-        System.out.println("ServiceAreaController:::::::::::::::::::: ");
-        System.out.println("ServiceAreaController:::::::::::::::::::: " + topologyDTO.getName());
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Конструктор топологии АЗС " + topologyDTO.getName());
@@ -44,11 +47,30 @@ public class ServiceAreaController {
     }
     public void setTopologyDTO(TopologyDTO topologyDTO) {
         this.topologyDTO = topologyDTO;
+        createTankListNode(TopologyDTO.FuelTank.FuelType.AI_92);
+        createTankListNode(TopologyDTO.FuelTank.FuelType.AI_95);
+        createTankListNode(TopologyDTO.FuelTank.FuelType.DT);
     }
 
-    public void addGasType (ActionEvent actionEvent) {
-        comboBox.getItems().addAll("Seafood Alfredo", "Chicken Alfredo", "Chicken Picatta", "Turkey Club",
-                "Lobster Pie", "Prime Rib", "Shrimp Scampi", "Turkey Dinner", "Stuffed Chicken");
-        listView.getItems().add(comboBox);
+    private void createTankListNode(TopologyDTO.FuelTank.FuelType fuelType) {
+        ComboBox<TopologyDTO.FuelTank.FuelType> comboBox = new ComboBox<>();
+        comboBox.getItems().addAll(
+                TopologyDTO.FuelTank.FuelType.DT,
+                TopologyDTO.FuelTank.FuelType.AI_80,
+                TopologyDTO.FuelTank.FuelType.AI_92,
+                TopologyDTO.FuelTank.FuelType.AI_95,
+                TopologyDTO.FuelTank.FuelType.AI_98
+        );
+        comboBox.setValue(fuelType);
+        HBox hbox = new HBox();
+        Label label = new Label(Integer.toString(tankList.size() + 1));
+        hbox.getChildren().addAll(label, comboBox);
+        listView.getItems().add(hbox);
+        //TODO: make ObservableList
+        tankList.add(new TopologyDTO.FuelTank(tankList.size() + 1, fuelType));
+    }
+
+    public void addFuelType(ActionEvent actionEvent) {
+        createTankListNode(TopologyDTO.FuelTank.FuelType.AI_92);
     }
 }
