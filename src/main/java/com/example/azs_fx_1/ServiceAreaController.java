@@ -2,6 +2,7 @@ package com.example.azs_fx_1;
 
 import com.example.azs_fx_1.dto.TopologyDTO;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -27,14 +28,14 @@ public class ServiceAreaController {
 
     public void onFurtherButtonClick(ActionEvent actionEvent) throws IOException, InterruptedException {
         //TODO: build tanklist from listView and setTanks()
-        topologyDTO.setTanks(new TopologyDTO.FuelTank[]{
-                new TopologyDTO.FuelTank(1, TopologyDTO.FuelTank.FuelType.AI_98),
-                new TopologyDTO.FuelTank(2, TopologyDTO.FuelTank.FuelType.AI_95),
-                new TopologyDTO.FuelTank(3, TopologyDTO.FuelTank.FuelType.DT),
-                new TopologyDTO.FuelTank(4, TopologyDTO.FuelTank.FuelType.AI_80),
-                new TopologyDTO.FuelTank(5, TopologyDTO.FuelTank.FuelType.AI_92),
-                new TopologyDTO.FuelTank(6, TopologyDTO.FuelTank.FuelType.AI_95)
-        });
+        TopologyDTO.FuelTank[] tanks = new TopologyDTO.FuelTank[] {};
+        for (int i=0; i < listView.getItems().size(); i++ ) {
+            HBox hbox = (HBox) listView.getItems().get(0);
+            ComboBox comboBox = (ComboBox) hbox.getChildren().get(1);
+            TopologyDTO.FuelTank.FuelType fuelType = (TopologyDTO.FuelTank.FuelType) comboBox.getSelectionModel().getSelectedItem();
+            tanks[i] = new TopologyDTO.FuelTank(i, fuelType );
+        }
+        topologyDTO.setTanks(tanks);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyConstructor.fxml"));
         root = loader.load();
         TopologyConstructorController constructorController = loader.getController();
@@ -53,21 +54,46 @@ public class ServiceAreaController {
     }
 
     private void createTankListNode(TopologyDTO.FuelTank.FuelType fuelType) {
-        ComboBox<TopologyDTO.FuelTank.FuelType> comboBox = new ComboBox<>();
-        comboBox.getItems().addAll(
-                TopologyDTO.FuelTank.FuelType.DT,
-                TopologyDTO.FuelTank.FuelType.AI_80,
-                TopologyDTO.FuelTank.FuelType.AI_92,
-                TopologyDTO.FuelTank.FuelType.AI_95,
-                TopologyDTO.FuelTank.FuelType.AI_98
-        );
-        comboBox.setValue(fuelType);
-        HBox hbox = new HBox();
-        Label label = new Label(Integer.toString(tankList.size() + 1));
-        hbox.getChildren().addAll(label, comboBox);
-        listView.getItems().add(hbox);
-        //TODO: make ObservableList
-        tankList.add(new TopologyDTO.FuelTank(tankList.size() + 1, fuelType));
+        if (listView.getItems().size() < 6) {
+            ComboBox<TopologyDTO.FuelTank.FuelType> comboBox = new ComboBox<>();
+            comboBox.getItems().addAll(
+                    TopologyDTO.FuelTank.FuelType.DT,
+                    TopologyDTO.FuelTank.FuelType.AI_80,
+                    TopologyDTO.FuelTank.FuelType.AI_92,
+                    TopologyDTO.FuelTank.FuelType.AI_95,
+                    TopologyDTO.FuelTank.FuelType.AI_98
+            );
+            comboBox.setValue(fuelType);
+            HBox hbox = new HBox();
+            Label label = new Label("Топливо" + " " + (tankList.size() + 1) + ":" + "  ");
+            hbox.getChildren().addAll(label, comboBox);
+            listView.getItems().add(hbox);
+            tankList.add(new TopologyDTO.FuelTank(tankList.size() + 1, fuelType));
+        }
+    }
+
+    public void deleteTankListNode () {
+        if (listView.getItems().size() > 5) {
+            listView.getItems().remove(5);
+            tankList.remove(5);
+        } else if (listView.getItems().size() > 4) {
+            listView.getItems().remove(4);
+            tankList.remove(4);
+        } else if (listView.getItems().size() > 3) {
+            listView.getItems().remove(3);
+            tankList.remove(3);
+        }
+    }
+
+    @FXML
+    public void onTopologyParamsButtonClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyParams.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Настройка служебной области АЗС");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void addFuelType() {

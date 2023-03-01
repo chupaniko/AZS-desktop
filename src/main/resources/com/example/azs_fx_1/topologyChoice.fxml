@@ -3,13 +3,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.azs_fx_1.TopologyChoiceController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.azs_fx_1.TopologyChoiceController">
    <children>
       <VBox layoutX="133.0" layoutY="25.0" prefHeight="348.0" prefWidth="343.0">
          <children>
             <Label text="Топология АЗС" />
-            <Button mnemonicParsing="false" text="Создание АЗС" fx:id="createAZS" onAction="#onCreateAZSButtonClick"/>
+            <Button fx:id="createAZS" mnemonicParsing="false" onAction="#onCreateAZSButtonClick" text="Создание АЗС" />
             <Label text="Загрузить топологию АЗС для редактирования" />
             <HBox prefHeight="31.0" prefWidth="343.0">
                <children>
@@ -17,7 +16,7 @@
                   <Button mnemonicParsing="false" text="OK" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" text="Назад" />
+            <Button mnemonicParsing="false" onAction="#onMainMenuButtonClick" text="Назад" />
          </children>
       </VBox>
    </children>

@@ -47,8 +47,8 @@
                 <Font size="24.0" />
             </font>
         </Button>
-        <Button layoutX="543.0" layoutY="345.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="177.0" text="Назад к размерам АЗС" />
-        <Button layoutX="544.0" layoutY="385.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="177.0" text="В главное меню" />
+        <Button layoutX="543.0" layoutY="345.0" mnemonicParsing="false" onAction="#onTopologyButtonClick" prefHeight="34.0" prefWidth="177.0" text="Назад к размерам АЗС" />
+        <Button layoutX="544.0" layoutY="385.0" mnemonicParsing="false" onAction="#onMainMenuButtonClick" prefHeight="34.0" prefWidth="177.0" text="В главное меню" />
         <Button layoutX="544.0" layoutY="432.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="177.0" text="Сохранить в базе данных" />
         <ImageView fx:id="imgViewGasStation" fitHeight="30.0" fitWidth="30.0" layoutX="618.0" layoutY="166.0" onDragDetected="#onImgViewDragDetected" pickOnBounds="true" preserveRatio="true">
             <image>
