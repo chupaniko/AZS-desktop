@@ -10,6 +10,7 @@ public enum TemplateAZS {
         public ImageView getImageView() {
             return getImageViewByPath(getClass(), "/com/example/azs_fx_1/images/road.png");
         }
+
     },
     GRASS {
         public ImageView getImageView() {

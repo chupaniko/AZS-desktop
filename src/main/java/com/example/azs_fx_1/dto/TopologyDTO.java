@@ -8,9 +8,9 @@ public class TopologyDTO {
     private int width;
     private int height;
     private FuelTank[] tanks;
-    private int[][] azsField;
+    private TemplateAZS[] azsField;
 
-    public TopologyDTO(String name, int width, int height, FuelTank[] tanks, int[][] azsField) {
+    public TopologyDTO(String name, int width, int height, FuelTank[] tanks, TemplateAZS[] azsField) {
         this.name = name;
         this.width = width;
         this.height = height;
@@ -56,11 +56,11 @@ public class TopologyDTO {
         this.tanks = tanks;
     }
 
-    public int[][] getAzsField() {
+    public TemplateAZS[] getAzsField() {
         return azsField;
     }
 
-    public void setAzsField(int[][] azsField) {
+    public void setAzsField(TemplateAZS[] azsField) {
         this.azsField = azsField;
     }
 
@@ -78,6 +78,17 @@ public class TopologyDTO {
         result = 31 * result + Arrays.hashCode(tanks);
         result = 31 * result + Arrays.deepHashCode(azsField);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "TopologyDTO{" +
+                "name='" + name + '\'' +
+                ", width=" + width +
+                ", height=" + height +
+                ", tanks=" + Arrays.toString(tanks) +
+                ", azsField=" + Arrays.toString(azsField) +
+                '}';
     }
 
     public static class FuelTank {
@@ -112,6 +123,14 @@ public class TopologyDTO {
         @Override
         public int hashCode() {
             return Objects.hash(tankNumber, fuelType);
+        }
+
+        @Override
+        public String toString() {
+            return "FuelTank{" +
+                    "tankNumber=" + tankNumber +
+                    ", fuelType=" + fuelType +
+                    '}';
         }
 
         public enum FuelType {
@@ -170,13 +189,23 @@ public class TopologyDTO {
             return Objects.hash(template);
         }
 
+        @Override
+        public String toString() {
+            return "TemplateAZS{" +
+                    "x_coordinate=" + x_coordinate +
+                    ", y_coordinate=" + y_coordinate +
+                    ", template=" + template +
+                    '}';
+        }
+
         public enum Template {
             grass,
-            filling_station,
+            fuel_station,
             entry,
             exit,
             cashbox,
-            road
+            road,
+            highway
         }
     }
 }
