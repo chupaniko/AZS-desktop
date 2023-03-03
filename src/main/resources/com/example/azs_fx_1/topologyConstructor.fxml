@@ -16,29 +16,19 @@
             </rowConstraints>
         </GridPane>
         <ImageView fx:id="imgViewRoad" fitHeight="30.0" fitWidth="30.0" layoutX="673.0" layoutY="166.0" onDragDetected="#onImgViewDragDetected" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/road.png" />
-            </image>
+
         </ImageView>
         <ImageView fx:id="imgViewExit" fitHeight="30.0" fitWidth="30.0" layoutX="617.0" layoutY="22.0" onDragDetected="#onImgViewDragDetected" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/exit.png" />
-            </image>
+
         </ImageView>
         <ImageView fx:id="imgViewEntry" fitHeight="30.0" fitWidth="30.0" layoutX="673.0" layoutY="22.0" onDragDetected="#onImgViewDragDetected" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/entry.png" />
-            </image>
+
         </ImageView>
         <ImageView fx:id="imgViewGrass" fitHeight="30.0" fitWidth="30.0" layoutX="617.0" layoutY="96.0" onDragDetected="#onImgViewDragDetected" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/grass.jpg" />
-            </image>
+
         </ImageView>
         <ImageView fx:id="imgViewCashRegister" fitHeight="30.0" fitWidth="30.0" layoutX="673.0" layoutY="96.0" onDragDetected="#onImgViewDragDetected" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/cashbox.png" />
-            </image>
+
         </ImageView>
         <Button layoutX="543.0" layoutY="257.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="177.0" text="Сохранить" />
         <Button layoutX="543.0" layoutY="297.0" mnemonicParsing="false" onAction="#removeArea" prefHeight="34.0" prefWidth="177.0" text="Очистить" />

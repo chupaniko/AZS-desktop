@@ -1,14 +1,14 @@
-package com.example.azs_fx_1.dto;
+package com.example.azs_fx_1;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 public class TopologyDTO {
-    private String name;
-    private int width;
-    private int height;
-    private FuelTank[] tanks;
-    private TemplateAZS[] azsField;
+    public String name;
+    public int width;
+    public int height;
+    public FuelTank[] tanks;
+    public TemplateAZS[] azsField;
 
     public TopologyDTO(String name, int width, int height, FuelTank[] tanks, TemplateAZS[] azsField) {
         this.name = name;
@@ -82,8 +82,8 @@ public class TopologyDTO {
 
     @Override
     public String toString() {
-        return "TopologyDTO{" +
-                "name='" + name + '\'' +
+        return "TopologyDTO: {" +
+                "\"name\": \"" + name + "\"" +
                 ", width=" + width +
                 ", height=" + height +
                 ", tanks=" + Arrays.toString(tanks) +
@@ -146,6 +146,14 @@ public class TopologyDTO {
         private int x_coordinate;
         private int y_coordinate;
         private Template template;
+
+        /*public static final Image cashbox = com.example.azs_fx_1.TemplateAZS.CASHBOX.getImageView().getImage();
+        public static final Image road = com.example.azs_fx_1.TemplateAZS.ROAD.getImageView().getImage();
+        public static final Image exit = com.example.azs_fx_1.TemplateAZS.EXIT.getImageView().getImage();
+        public static final Image entry = com.example.azs_fx_1.TemplateAZS.ENTRY.getImageView().getImage();
+        public static final Image grass = com.example.azs_fx_1.TemplateAZS.GRASS.getImageView().getImage();
+        public static final Image fuelStation = com.example.azs_fx_1.TemplateAZS.FUEL_STATION.getImageView().getImage();
+        public static final Image highway = com.example.azs_fx_1.TemplateAZS.HIGHWAY.getImageView().getImage();*/
         public TemplateAZS(int x_coordinate, int y_coordinate, Template template) {
             this.x_coordinate = x_coordinate;
             this.y_coordinate = y_coordinate;
