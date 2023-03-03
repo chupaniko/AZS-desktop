@@ -1,13 +1,22 @@
 package com.example.azs_fx_1;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.Closeable;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class TopologyDTO {
+public class TopologyDTO implements Serializable, Cloneable {
+    @JsonProperty("name")
     public String name;
+    @JsonProperty("width")
     public int width;
+    @JsonProperty("height")
     public int height;
+    @JsonProperty("tanks")
     public FuelTank[] tanks;
+    @JsonProperty("azsField")
     public TemplateAZS[] azsField;
 
     public TopologyDTO(String name, int width, int height, FuelTank[] tanks, TemplateAZS[] azsField) {
@@ -24,42 +33,60 @@ public class TopologyDTO {
         this.height = height;
     }
 
+    public TopologyDTO() {
+        name = "";
+        width = -1;
+        height = -1;
+        tanks = new FuelTank[0];
+        azsField = new TemplateAZS[0];
+    }
+
+    @JsonProperty("name")
     public String getName() {
         return name;
     }
 
+    @JsonProperty("name")
     public void setName(String name) {
         this.name = name;
     }
 
+    @JsonProperty("width")
     public int getWidth() {
         return width;
     }
 
+    @JsonProperty("width")
     public void setWidth(int width) {
         this.width = width;
     }
 
+    @JsonProperty("height")
     public int getHeight() {
         return height;
     }
 
+    @JsonProperty("height")
     public void setHeight(int height) {
         this.height = height;
     }
 
+    @JsonProperty("tanks")
     public FuelTank[] getTanks() {
         return tanks;
     }
 
+    @JsonProperty("tanks")
     public void setTanks(FuelTank[] tanks) {
         this.tanks = tanks;
     }
 
+    @JsonProperty("azsField")
     public TemplateAZS[] getAzsField() {
         return azsField;
     }
 
+    @JsonProperty("azsField")
     public void setAzsField(TemplateAZS[] azsField) {
         this.azsField = azsField;
     }
@@ -96,6 +123,12 @@ public class TopologyDTO {
             this.tankNumber = tankNumber;
             this.fuelType = fuelType;
         }
+
+        public FuelTank() {
+            tankNumber = -1;
+            fuelType = FuelType.AI_92;
+        }
+
         public int tankNumber;
         private FuelType fuelType;
         public int getTankNumber() {
@@ -158,6 +191,12 @@ public class TopologyDTO {
             this.x_coordinate = x_coordinate;
             this.y_coordinate = y_coordinate;
             this.template = template;
+        }
+
+        public TemplateAZS() {
+            x_coordinate = -1;
+            y_coordinate = -1;
+            template = Template.road;
         }
 
         public int getX_coordinate() {

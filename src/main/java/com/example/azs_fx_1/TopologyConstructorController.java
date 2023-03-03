@@ -260,9 +260,13 @@ public class TopologyConstructorController {
         //
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        /*AzsDTO dto = new AzsDTO(topologyDTO.getName(), topologyDTO.getWidth(), topologyDTO.getHeight(), topologyDTO.getTanks(), topologyDTO.getAzsField());
+*/
         String jsonString = objectMapper.writeValueAsString(topologyDTO);
+        TopologyDTO topologyDTO1 = objectMapper.readValue(jsonString, TopologyDTO.class);
         System.out.println(jsonString);
-        System.out.println(topologyDTO.toString());
+        System.out.println(topologyDTO1.toString());
     }
 
    /* @Override
