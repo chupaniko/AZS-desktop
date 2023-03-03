@@ -21,6 +21,7 @@ public class ServiceAreaController {
 
     //private List<TopologyDTO.FuelTank> tankList = new ArrayList<>();
     public ListView<HBox> listView;
+    private String username;
 
     public void onFurtherButtonClick(ActionEvent actionEvent) throws IOException, InterruptedException {
         TopologyDTO.FuelTank[] tanks = new TopologyDTO.FuelTank[listView.getItems().size()];
@@ -45,7 +46,7 @@ public class ServiceAreaController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyConstructor.fxml"));
         root = loader.load();
         TopologyConstructorController constructorController = loader.getController();
-        constructorController.setTopologyDTO(topologyDTO);
+        constructorController.setTopologyDTO(username, topologyDTO);
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Конструктор топологии АЗС " + topologyDTO.getName());
@@ -53,8 +54,9 @@ public class ServiceAreaController {
         stage.show();
     }
 
-    public void setTopologyDTO(TopologyDTO topologyDTO) {
+    public void setTopologyDTO(String username, TopologyDTO topologyDTO) {
         this.topologyDTO = topologyDTO;
+        this.username = username;
         createTankListNode(TopologyDTO.FuelTank.FuelType.AI_92);
         createTankListNode(TopologyDTO.FuelTank.FuelType.AI_95);
         createTankListNode(TopologyDTO.FuelTank.FuelType.DT);

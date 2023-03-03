@@ -21,6 +21,7 @@ public class MainMenuController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private String username;
 
     @FXML
     protected void onModellingButtonClick(ActionEvent event) throws IOException {
@@ -44,9 +45,14 @@ public class MainMenuController {
         }*/
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
     public void onTopologyButtonClick(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyChoice.fxml"));
         root = loader.load();
+        TopologyChoiceController topologyChoiceController = loader.getController();
+        topologyChoiceController.setUsername(username);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Топология");

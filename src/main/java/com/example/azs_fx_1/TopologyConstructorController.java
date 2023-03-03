@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
@@ -18,8 +19,19 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.ParseException;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class TopologyConstructorController {
     public GridPane topologyGrid;
@@ -38,6 +50,7 @@ public class TopologyConstructorController {
     private Image GRASS;
     private Image FUEL_STATION;
     private Image HIGHWAY;
+    private String username;
 
     /*private int gridSize = 50;
 
@@ -49,8 +62,9 @@ public class TopologyConstructorController {
     private DraggableMaker draggableMaker = new DraggableMaker();
     private DraggableMakerGrid gridMaker2;*/
 
-    public void setTopologyDTO(TopologyDTO topologyDTO) {
+    public void setTopologyDTO(String username, TopologyDTO topologyDTO) {
         this.topologyDTO = topologyDTO;
+        this.username = username;
         ROAD = TemplateAZS.ROAD.getImageView(getClass()).getImage();
         CASHBOX = TemplateAZS.CASHBOX.getImageView(getClass()).getImage();
         EXIT = TemplateAZS.EXIT.getImageView(getClass()).getImage();
@@ -189,7 +203,7 @@ public class TopologyConstructorController {
 
     public void removeArea(ActionEvent event) {
         topologyGrid.getChildren().clear();
-        setTopologyDTO(topologyDTO);
+        setTopologyDTO(username, topologyDTO);
     }
 
     private Stage dialogStage;
@@ -262,10 +276,53 @@ public class TopologyConstructorController {
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
         /*AzsDTO dto = new AzsDTO(topologyDTO.getName(), topologyDTO.getWidth(), topologyDTO.getHeight(), topologyDTO.getTanks(), topologyDTO.getAzsField());
-*/
-        String jsonString = objectMapper.writeValueAsString(topologyDTO);
-        TopologyDTO topologyDTO1 = objectMapper.readValue(jsonString, TopologyDTO.class);
-        System.out.println(jsonString);
+         */
+        String jsonTopology = objectMapper.writeValueAsString(topologyDTO);
+
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("username", username);
+        jsonRequest.put("topologyName", topologyDTO.getName());
+        jsonRequest.put("topologyJSON", jsonTopology);
+
+        String result = null;
+        System.out.println("jsonRequest = " + jsonRequest);
+        HttpPost httpPost = new HttpPost("http://localhost:8080/api/saveTopology");
+        httpPost.setEntity(new StringEntity(jsonRequest.toString(), ContentType.APPLICATION_JSON));
+        try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+            try (CloseableHttpResponse response = httpclient.execute(httpPost)) {
+                // TODO assert non-null (exception in get username
+                System.out.println("response = " + response.getEntity());
+                result = "ok";
+                /*result = (new JSONObject(EntityUtils.toString(response.getEntity()))).get("topologyName").toString();
+                System.out.println("result = " + result);*/
+            }
+        } catch (IOException | JSONException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Ошибка  сохранения топологии");
+            alert.setContentText("Топология составлена некоррректно.");
+            alert.showAndWait();
+            e.printStackTrace();
+        }
+        System.out.println(result);
+// TODO: вернуть проверку
+        if (result != null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Топология сохранена!");
+            alert.setContentText("Топология \"" + topologyDTO.getName() + "\" успешно сохранена в БД.");
+            alert.showAndWait();
+            /*FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
+            root = loader.load();
+            MainMenuController mainMenuController = loader.getController();
+            mainMenuController.setUsername(loginField.getText());
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setTitle("Main");
+            stage.setScene(scene);
+            stage.show();*/
+        }
+
+        TopologyDTO topologyDTO1 = objectMapper.readValue(jsonTopology, TopologyDTO.class);
+        System.out.println(jsonTopology);
         System.out.println(topologyDTO1.toString());
     }
 
