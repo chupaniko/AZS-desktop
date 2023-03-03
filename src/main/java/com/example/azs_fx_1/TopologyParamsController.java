@@ -1,6 +1,5 @@
 package com.example.azs_fx_1;
 
-import com.example.azs_fx_1.dto.TopologyDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,6 +18,7 @@ public class TopologyParamsController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private String username;
 
     public void onSetTopologyParamsClick(ActionEvent actionEvent) throws IOException {
         TopologyDTO topologyDTO = new TopologyDTO(topologyName.getText(), Integer.parseInt(length_AZS.getText()), Integer.parseInt(width_AZS.getText()) + 1);
@@ -26,12 +26,15 @@ public class TopologyParamsController {
         root = loader.load();
 
         ServiceAreaController serviceAreaController = loader.getController();
-        serviceAreaController.setTopologyDTO(topologyDTO);
+        serviceAreaController.setTopologyDTO(username, topologyDTO);
 
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Настройка служебной области АЗС");
         stage.setScene(scene);
         stage.show();
+    }
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -1,16 +1,25 @@
-package com.example.azs_fx_1.dto;
+package com.example.azs_fx_1;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.Closeable;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class TopologyDTO {
-    private String name;
-    private int width;
-    private int height;
-    private FuelTank[] tanks;
-    private int[][] azsField;
+public class TopologyDTO implements Serializable, Cloneable {
+    @JsonProperty("name")
+    public String name;
+    @JsonProperty("width")
+    public int width;
+    @JsonProperty("height")
+    public int height;
+    @JsonProperty("tanks")
+    public FuelTank[] tanks;
+    @JsonProperty("azsField")
+    public TemplateAZS[] azsField;
 
-    public TopologyDTO(String name, int width, int height, FuelTank[] tanks, int[][] azsField) {
+    public TopologyDTO(String name, int width, int height, FuelTank[] tanks, TemplateAZS[] azsField) {
         this.name = name;
         this.width = width;
         this.height = height;
@@ -24,43 +33,61 @@ public class TopologyDTO {
         this.height = height;
     }
 
+    public TopologyDTO() {
+        name = "";
+        width = -1;
+        height = -1;
+        tanks = new FuelTank[0];
+        azsField = new TemplateAZS[0];
+    }
+
+    @JsonProperty("name")
     public String getName() {
         return name;
     }
 
+    @JsonProperty("name")
     public void setName(String name) {
         this.name = name;
     }
 
+    @JsonProperty("width")
     public int getWidth() {
         return width;
     }
 
+    @JsonProperty("width")
     public void setWidth(int width) {
         this.width = width;
     }
 
+    @JsonProperty("height")
     public int getHeight() {
         return height;
     }
 
+    @JsonProperty("height")
     public void setHeight(int height) {
         this.height = height;
     }
 
+    @JsonProperty("tanks")
     public FuelTank[] getTanks() {
         return tanks;
     }
 
+    @JsonProperty("tanks")
     public void setTanks(FuelTank[] tanks) {
         this.tanks = tanks;
     }
 
-    public int[][] getAzsField() {
+    @JsonProperty("azsField")
+    public TemplateAZS[] getAzsField() {
         return azsField;
     }
 
-    public void setAzsField(int[][] azsField) {
+    @JsonProperty("azsField")
+    public void setAzsField(TemplateAZS[] azsField) {
         this.azsField = azsField;
     }
 
@@ -80,11 +107,28 @@ public class TopologyDTO {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "TopologyDTO: {" +
+                "\"name\": \"" + name + "\"" +
+                ", width=" + width +
+                ", height=" + height +
+                ", tanks=" + Arrays.toString(tanks) +
+                ", azsField=" + Arrays.toString(azsField) +
+                '}';
+    }
+
     public static class FuelTank {
         public FuelTank(int tankNumber, FuelType fuelType) {
             this.tankNumber = tankNumber;
             this.fuelType = fuelType;
         }
+
+        public FuelTank() {
+            tankNumber = -1;
+            fuelType = FuelType.AI_92;
+        }
+
         public int tankNumber;
         private FuelType fuelType;
         public int getTankNumber() {
@@ -114,6 +158,14 @@ public class TopologyDTO {
             return Objects.hash(tankNumber, fuelType);
         }
 
+        @Override
+        public String toString() {
+            return "FuelTank{" +
+                    "tankNumber=" + tankNumber +
+                    ", fuelType=" + fuelType +
+                    '}';
+        }
+
         public enum FuelType {
             AI_80,
             AI_92,
@@ -127,10 +179,24 @@ public class TopologyDTO {
         private int x_coordinate;
         private int y_coordinate;
         private Template template;
+
+        /*public static final Image cashbox = com.example.azs_fx_1.TemplateAZS.CASHBOX.getImageView().getImage();
+        public static final Image road = com.example.azs_fx_1.TemplateAZS.ROAD.getImageView().getImage();
+        public static final Image exit = com.example.azs_fx_1.TemplateAZS.EXIT.getImageView().getImage();
+        public static final Image entry = com.example.azs_fx_1.TemplateAZS.ENTRY.getImageView().getImage();
+        public static final Image grass = com.example.azs_fx_1.TemplateAZS.GRASS.getImageView().getImage();
+        public static final Image fuelStation = com.example.azs_fx_1.TemplateAZS.FUEL_STATION.getImageView().getImage();
+        public static final Image highway = com.example.azs_fx_1.TemplateAZS.HIGHWAY.getImageView().getImage();*/
         public TemplateAZS(int x_coordinate, int y_coordinate, Template template) {
             this.x_coordinate = x_coordinate;
             this.y_coordinate = y_coordinate;
             this.template = template;
+        }
+
+        public TemplateAZS() {
+            x_coordinate = -1;
+            y_coordinate = -1;
+            template = Template.road;
         }
 
         public int getX_coordinate() {
@@ -170,13 +236,23 @@ public class TopologyDTO {
             return Objects.hash(template);
         }
 
+        @Override
+        public String toString() {
+            return "TemplateAZS{" +
+                    "x_coordinate=" + x_coordinate +
+                    ", y_coordinate=" + y_coordinate +
+                    ", template=" + template +
+                    '}';
+        }
+
         public enum Template {
             grass,
-            filling_station,
+            fuel_station,
             entry,
             exit,
             cashbox,
-            road
+            road,
+            highway
         }
     }
 }

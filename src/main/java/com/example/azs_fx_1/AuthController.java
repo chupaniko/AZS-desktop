@@ -70,6 +70,7 @@ public class AuthController {
             try (CloseableHttpResponse response = httpclient.execute(httpPost)) {
                 // TODO assert non-null (exception in get username
                 result = (new JSONObject(EntityUtils.toString(response.getEntity()))).get("username").toString();
+                //System.out.println(new JSONObject(EntityUtils.toString(response.getEntity())));
             }
         } catch (IOException | ParseException | JSONException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -83,19 +84,23 @@ public class AuthController {
         if (result != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
             root = loader.load();
+            MainMenuController mainMenuController = loader.getController();
+            mainMenuController.setUsername(loginField.getText());
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setTitle("Main");
             stage.setScene(scene);
             stage.show();
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
         root = loader.load();
+        MainMenuController mainMenuController = loader.getController();
+        mainMenuController.setUsername(loginField.getText());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Main");
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
 
         /*try {
             FXMLLoader fxmlLoader = new FXMLLoader();
