@@ -1,6 +1,4 @@
-package com.example.azs_fx_1;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package com.example.azs_fx_1.dto;
 
 import java.util.Arrays;
 import java.util.Objects;

@@ -27,7 +27,6 @@ public class TopologyChoiceController {
         stage.setScene(scene);
         stage.show();
     }
-
     public void setUsername(String username) {
         this.username = username;
     }

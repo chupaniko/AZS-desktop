@@ -25,7 +25,7 @@ public class MainMenuController {
 
     @FXML
     protected void onModellingButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Расчёт АЗС.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("modelling.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

@@ -17,4 +17,6 @@ module com.example.azs_fx_1 {
 
     opens com.example.azs_fx_1 to javafx.fxml;
     exports com.example.azs_fx_1;
+    exports com.example.azs_fx_1.dto;
+    opens com.example.azs_fx_1.dto to javafx.fxml;
 }
