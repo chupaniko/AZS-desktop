@@ -1,5 +1,6 @@
 package com.example.azs_fx_1;
 
+import com.example.azs_fx_1.dto.TopologyDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -224,7 +225,7 @@ public class TopologyConstructorController {
         dialogStage.show();
     }
 
-    public void onSaveTopology(ActionEvent event) throws JsonProcessingException {
+    public void onSaveTopology() throws JsonProcessingException {
         // TODO: пофиксить некорректные значения для numRows и numCols
         int numRows = topologyGrid.getRowCount();
         int numCols = topologyGrid.getColumnCount();
@@ -292,9 +293,11 @@ public class TopologyConstructorController {
             try (CloseableHttpResponse response = httpclient.execute(httpPost)) {
                 // TODO assert non-null (exception in get username
                 System.out.println("response = " + response.getEntity());
-                result = "ok";
+                result = (new JSONObject(EntityUtils.toString(response.getEntity()))).toString();
                 /*result = (new JSONObject(EntityUtils.toString(response.getEntity()))).get("topologyName").toString();
                 System.out.println("result = " + result);*/
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
             }
         } catch (IOException | JSONException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -303,7 +306,7 @@ public class TopologyConstructorController {
             alert.showAndWait();
             e.printStackTrace();
         }
-        System.out.println(result);
+        System.out.println("result " + result);
 // TODO: вернуть проверку
         if (result != null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -10,7 +10,6 @@ public enum TemplateAZS {
         public ImageView getImageView(Class context) {
             return getImageViewByPath(context, "/com/example/azs_fx_1/images/road.png");
         }
-
     },
     GRASS {
         public ImageView getImageView(Class context) {
@@ -39,10 +38,12 @@ public enum TemplateAZS {
     },
     FUEL_STATION {
         public ImageView getImageView(Class context) {
-           return getImageViewByPath(context, "/com/example/azs_fx_1/images/fuelStation.png");
+            return getImageViewByPath(context, "/com/example/azs_fx_1/images/fuelStation.png");
         }
     };
+
     public abstract ImageView getImageView(Class context);
+
     private static ImageView getImageViewByPath(Class context, String path) {
         ImageView imageView = new ImageView(new Image(Objects.requireNonNull(context.getResourceAsStream(path))));
         imageView.setFitHeight(30.0);

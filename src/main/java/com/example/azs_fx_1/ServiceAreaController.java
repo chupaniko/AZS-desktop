@@ -1,5 +1,6 @@
 package com.example.azs_fx_1;
 
+import com.example.azs_fx_1.dto.TopologyDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -81,6 +82,8 @@ public class ServiceAreaController {
     }
 
     public void addFuelType() {
-        createTankListNode(TopologyDTO.FuelTank.FuelType.AI_92);
+        if (listView.getItems().size() < 6) {
+            createTankListNode(TopologyDTO.FuelTank.FuelType.AI_92);
+        }
     }
 }
