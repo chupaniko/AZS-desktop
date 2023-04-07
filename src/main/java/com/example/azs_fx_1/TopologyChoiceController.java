@@ -30,4 +30,14 @@ public class TopologyChoiceController {
     public void setUsername(String username) {
         this.username = username;
     }
+    @FXML
+    public void onMainMenuButtonClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Main");
+        stage.setScene(scene);
+        stage.show();
+    }
 }

@@ -2,6 +2,7 @@ package com.example.azs_fx_1;
 
 import com.example.azs_fx_1.dto.TopologyDTO;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -32,6 +33,16 @@ public class TopologyParamsController {
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Настройка служебной области АЗС");
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void onTopologyButtonClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyChoice.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Топология");
         stage.setScene(scene);
         stage.show();
     }

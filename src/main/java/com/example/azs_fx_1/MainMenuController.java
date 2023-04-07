@@ -7,9 +7,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class MainMenuController {
     @FXML
@@ -58,6 +62,31 @@ public class MainMenuController {
         stage.setTitle("Топология");
         stage.setScene(scene);
         stage.show();
+    }
+    private Stage dialogStage;
+    private Stage primaryStage;
+    public void onAboutButtonClick (ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("about.fxml"));
+        root = loader.load();
+        primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        dialogStage = new Stage();
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(primaryStage);
+        scene = new Scene(root);
+        dialogStage.setTitle("О разработчиках");
+        dialogStage.setScene(scene);
+        dialogStage.show();
+    }
+    private WebView browser = new WebView();
+    private WebEngine webEngine = browser.getEngine();
+    public void onAboutAppButtonClick () {
+        URL url = this.getClass().getResource("/com/example/azs_fx_1/about-app.html");
+        webEngine.load(url.toString());
+        dialogStage = new Stage();
+        Scene webscene = new Scene(browser);
+        dialogStage.setScene(webscene);
+        dialogStage.setTitle("О программе");
+        dialogStage.show();
     }
 }
 

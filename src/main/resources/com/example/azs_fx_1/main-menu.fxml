@@ -10,7 +10,7 @@
     <children>
         <Button layoutX="43.0" layoutY="14.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="173.0" text="Топология АЗС" fx:id="topology" onAction="#onTopologyButtonClick"/>
         <Button layoutX="43.0" layoutY="86.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="173.0" text="Моделирование АЗС" fx:id="modelling" onAction="#onModellingButtonClick"/>
-        <Button layoutX="43.0" layoutY="156.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="173.0" text="О программе" />
-        <Button layoutX="43.0" layoutY="225.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="173.0" text="О разработчиках" />
+        <Button layoutX="43.0" layoutY="156.0" mnemonicParsing="false" onAction="#onAboutAppButtonClick" prefHeight="47.0" prefWidth="173.0" text="О программе" />
+        <Button layoutX="43.0" layoutY="225.0" mnemonicParsing="false" onAction="#onAboutButtonClick" prefHeight="47.0" prefWidth="173.0" text="О разработчиках" />
     </children>
 </AnchorPane>

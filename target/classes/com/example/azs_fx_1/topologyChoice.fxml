@@ -17,7 +17,7 @@
                   <Button mnemonicParsing="false" text="OK" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" text="Назад" />
+            <Button mnemonicParsing="false" onAction="#onMainMenuButtonClick" text="Назад" />
          </children>
       </VBox>
    </children>

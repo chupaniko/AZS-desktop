@@ -3,6 +3,7 @@ package com.example.azs_fx_1;
 import com.example.azs_fx_1.dto.TopologyDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -328,7 +329,29 @@ public class TopologyConstructorController {
         System.out.println(jsonTopology);
         System.out.println(topologyDTO1.toString());
     }
+    private Stage stage;
+    @FXML
+    public void onMainMenuButtonClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Main");
+        stage.setScene(scene);
+        stage.show();
+    }
 
+
+    @FXML
+    public void onTopologyButtonClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyParams.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("Настройка служебной области АЗС");
+        stage.setScene(scene);
+        stage.show();
+    }
    /* @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("TopologyConstructorController:::::::::::::::::::: " + topologyDTO.getName());
