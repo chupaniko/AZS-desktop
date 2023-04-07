@@ -99,6 +99,8 @@ public class ServiceAreaController {
     public void onTopologyParamsButtonClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyParams.fxml"));
         root = loader.load();
+        TopologyParamsController topologyParamsController = loader.getController();
+        topologyParamsController.setUsername(username);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Настройка служебной области АЗС");

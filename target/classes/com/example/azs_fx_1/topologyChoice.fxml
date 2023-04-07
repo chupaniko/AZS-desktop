@@ -13,8 +13,8 @@
             <Label text="Загрузить топологию АЗС для редактирования" />
             <HBox prefHeight="31.0" prefWidth="343.0">
                <children>
-                  <ChoiceBox prefWidth="150.0" />
-                  <Button mnemonicParsing="false" text="OK" />
+                  <ChoiceBox prefWidth="150.0" fx:id="topologyChoice"/>
+                  <Button mnemonicParsing="false" text="OK" onAction="#onOpenAZSButtonClick"/>
                </children>
             </HBox>
             <Button mnemonicParsing="false" onAction="#onMainMenuButtonClick" text="Назад" />

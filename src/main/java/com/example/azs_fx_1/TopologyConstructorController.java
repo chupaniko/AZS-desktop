@@ -80,9 +80,13 @@ public class TopologyConstructorController {
         imgViewExit.setImage(EXIT);
         imgViewRoad.setImage(ROAD);
 
+        TopologyDTO.TemplateAZS[] azsField = topologyDTO.getAzsField();
+
         for (int i = 0; i < topologyDTO.getWidth(); i++) {
             //topologyGrid.getColumnConstraints().add(new ColumnConstraints(30));
             for (int j = 0; j < topologyDTO.getHeight(); j++) {
+                /*TopologyDTO.TemplateAZS azsCell = azsField[0]
+                switch ()*/
                 ImageView templateImageView = new ImageView(ROAD);
                 templateImageView.setFitWidth(30.0);
                 templateImageView.setFitHeight(30.0);
@@ -109,6 +113,8 @@ public class TopologyConstructorController {
         imageView.setFitHeight(30);
         imageView.setFitWidth(30);
         Dragboard dragboard = imageView.startDragAndDrop(TransferMode.ANY);
+        imageView.setFitHeight(30);
+        imageView.setFitWidth(30);
         ClipboardContent content = new ClipboardContent();
         content.putImage(imageView.getImage());
         dragboard.setContent(content);
@@ -325,15 +331,17 @@ public class TopologyConstructorController {
             stage.show();*/
         }
 
-        TopologyDTO topologyDTO1 = objectMapper.readValue(jsonTopology, TopologyDTO.class);
+        /*TopologyDTO topologyDTO1 = objectMapper.readValue(jsonTopology, TopologyDTO.class);
         System.out.println(jsonTopology);
-        System.out.println(topologyDTO1.toString());
+        System.out.println(topologyDTO1.toString());*/
     }
     private Stage stage;
     @FXML
     public void onMainMenuButtonClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
         root = loader.load();
+        MainMenuController mainMenuController = loader.getController();
+        mainMenuController.setUsername(username);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Main");
@@ -346,6 +354,8 @@ public class TopologyConstructorController {
     public void onTopologyButtonClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyParams.fxml"));
         root = loader.load();
+        TopologyParamsController topologyParamsController = loader.getController();
+        topologyParamsController.setUsername(username);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Настройка служебной области АЗС");

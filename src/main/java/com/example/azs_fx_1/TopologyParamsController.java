@@ -40,6 +40,8 @@ public class TopologyParamsController {
     public void onTopologyButtonClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyChoice.fxml"));
         root = loader.load();
+        TopologyChoiceController topologyChoiceController = loader.getController();
+        topologyChoiceController.setUsername(username);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setTitle("Топология");
