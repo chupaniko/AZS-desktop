@@ -92,7 +92,7 @@ public class AuthController {
             stage.setScene(scene);
             stage.show();
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
         root = loader.load();
         MainMenuController mainMenuController = loader.getController();
         mainMenuController.setUsername(loginField.getText());
@@ -100,7 +100,7 @@ public class AuthController {
         scene = new Scene(root);
         stage.setTitle("Main");
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
 
         /*try {
             FXMLLoader fxmlLoader = new FXMLLoader();

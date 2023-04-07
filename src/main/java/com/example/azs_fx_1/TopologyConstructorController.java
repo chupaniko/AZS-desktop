@@ -82,27 +82,46 @@ public class TopologyConstructorController {
 
         TopologyDTO.TemplateAZS[] azsField = topologyDTO.getAzsField();
 
-        for (int i = 0; i < topologyDTO.getWidth(); i++) {
-            //topologyGrid.getColumnConstraints().add(new ColumnConstraints(30));
-            for (int j = 0; j < topologyDTO.getHeight(); j++) {
+            for (int i = 0; i < topologyDTO.getWidth(); i++) {
+                //topologyGrid.getColumnConstraints().add(new ColumnConstraints(30));
+                for (int j = 0; j < topologyDTO.getHeight(); j++) {
                 /*TopologyDTO.TemplateAZS azsCell = azsField[0]
                 switch ()*/
-                ImageView templateImageView = new ImageView(ROAD);
+                    ImageView templateImageView = new ImageView(ROAD);
+                    templateImageView.setFitWidth(30.0);
+                    templateImageView.setFitHeight(30.0);
+                    //topologyGrid.getRowConstraints().add(new RowConstraints(30));
+                    topologyGrid.add(templateImageView, i, j);
+                    templateAZSMap.put(i + " " + j, new TopologyDTO.TemplateAZS(i, j, TopologyDTO.TemplateAZS.Template.road));
+                }
+            }
+            //topologyGrid.getRowConstraints().add(new RowConstraints(30));
+            for (int i = 0; i < topologyDTO.getWidth(); i++) {
+                //ImageView templateImageView = TemplateAZS.HIGHWAY.getImageView(getClass());
+                ImageView templateImageView = new ImageView(HIGHWAY);
                 templateImageView.setFitWidth(30.0);
                 templateImageView.setFitHeight(30.0);
-                //topologyGrid.getRowConstraints().add(new RowConstraints(30));
-                topologyGrid.add(templateImageView, i, j);
-                templateAZSMap.put(i + " " + j, new TopologyDTO.TemplateAZS(i, j, TopologyDTO.TemplateAZS.Template.road));
+                topologyGrid.add(templateImageView, i, topologyDTO.getHeight() - 1);
+                templateAZSMap.put(i + " " + (topologyDTO.getHeight() - 1), new TopologyDTO.TemplateAZS(i, (topologyDTO.getHeight() - 1), TopologyDTO.TemplateAZS.Template.highway));
             }
-        }
-        //topologyGrid.getRowConstraints().add(new RowConstraints(30));
-        for (int i = 0; i < topologyDTO.getWidth(); i++) {
-            //ImageView templateImageView = TemplateAZS.HIGHWAY.getImageView(getClass());
-            ImageView templateImageView = new ImageView(HIGHWAY);
-            templateImageView.setFitWidth(30.0);
-            templateImageView.setFitHeight(30.0);
-            topologyGrid.add(templateImageView, i, topologyDTO.getHeight() - 1);
-            templateAZSMap.put(i + " " + (topologyDTO.getHeight() - 1), new TopologyDTO.TemplateAZS(i, (topologyDTO.getHeight() - 1), TopologyDTO.TemplateAZS.Template.highway));
+        if (azsField != null) {
+            for (TopologyDTO.TemplateAZS azsCell : azsField) {
+                TopologyDTO.TemplateAZS.Template cellTemplate = azsCell.getTemplate();
+                ImageView templateImageView;
+                switch (cellTemplate) {
+                    case grass -> templateImageView = new ImageView(GRASS);
+                    case exit -> templateImageView = new ImageView(EXIT);
+                    case entry -> templateImageView = new ImageView(ENTRY);
+                    case cashbox -> templateImageView = new ImageView(CASHBOX);
+                    case highway -> templateImageView = new ImageView(HIGHWAY);
+                    case fuel_station -> templateImageView = new ImageView(FUEL_STATION);
+                    default -> templateImageView = new ImageView(ROAD);
+                }
+                templateImageView.setFitWidth(30.0);
+                templateImageView.setFitHeight(30.0);
+                topologyGrid.add(templateImageView, azsCell.getX_coordinate(), azsCell.getY_coordinate());
+                templateAZSMap.put(azsCell.getX_coordinate() + " " + azsCell.getY_coordinate(), new TopologyDTO.TemplateAZS(azsCell.getX_coordinate(), azsCell.getY_coordinate(), cellTemplate));
+            }
         }
     }
 
@@ -211,7 +230,13 @@ public class TopologyConstructorController {
 
     public void removeArea(ActionEvent event) {
         topologyGrid.getChildren().clear();
-        setTopologyDTO(username, topologyDTO);
+        setTopologyDTO(username, new TopologyDTO(
+                topologyDTO.getName(),
+                topologyDTO.getWidth(),
+                topologyDTO.getHeight(),
+                topologyDTO.getTanks(),
+                null)
+        );
     }
 
     private Stage dialogStage;
@@ -348,8 +373,6 @@ public class TopologyConstructorController {
         stage.setScene(scene);
         stage.show();
     }
-
-
     @FXML
     public void onTopologyButtonClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("topologyParams.fxml"));
@@ -362,30 +385,4 @@ public class TopologyConstructorController {
         stage.setScene(scene);
         stage.show();
     }
-   /* @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("TopologyConstructorController:::::::::::::::::::: " + topologyDTO.getName());
-
-        *//*mainArea.add(new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/azs_fx_1/images/road.png")))), 2, 2);
-        mainArea.add(new Button(), 0, 0);
-        for (int i = 0; i < mainArea.getColumnCount(); i++) {
-            ColumnConstraints column = mainArea.getColumnConstraints().get(i);
-            column.setPrefWidth(30);
-        }
-        for (int i = 0; i < mainArea.getRowCount(); i++) {
-            RowConstraints row = mainArea.getRowConstraints().get(i);
-            row.setPrefHeight(30);
-        }*//*
-     *//*draggableMakerGrid = new DraggableMakerGrid(pane.getPrefWidth(), pane.getPrefHeight(), gridSize, pane);
-        gridMaker2 = new DraggableMakerGrid(pane.getPrefWidth(), pane.getPrefHeight(), gridSize, pane);
-
-        backgroundGridHandler = new GridHandler(pane.getPrefWidth(), pane.getPrefHeight(), gridSize, pane);
-        backgroundGridHandler.updateGrid();
-
-        Component component = new Component(gridSize, 100, 100);
-        pane.getChildren().add(component.getRectangle());
-
-        //draggableMakerGrid.makeDraggable(component);
-        draggableMaker.makeDraggable(component.getRectangle());*//*
-    }*/
 }

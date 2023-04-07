@@ -75,7 +75,9 @@ public class TopologyChoiceController {
                     topologyMap.put(jsonObject.get("topologyName").toString(), jsonObject.get("topologyJSON").toString());
                     topologyChoice.getItems().add(jsonObject.get("topologyName").toString());
                 }
-                topologyChoice.setValue(topologyChoice.getItems().get(0));
+                if (topologyChoice.getItems().size() != 0) {
+                    topologyChoice.setValue(topologyChoice.getItems().get(0));
+                }
                 System.out.println("result = " + topologyMap);
             } catch (ParseException e) {
                 throw new RuntimeException(e);
