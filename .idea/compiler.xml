@@ -9,8 +9,5 @@
         <module name="AZS_fx_1" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="AZS_fx_1" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
